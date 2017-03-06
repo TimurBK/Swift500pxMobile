@@ -15,14 +15,10 @@
 		3C299B361E66213600E626C7 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2E1E66213600E626C7 /* ReactiveSwift.framework */; };
 		3C299B371E66213600E626C7 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2F1E66213600E626C7 /* Result.framework */; };
 		3C299B381E66213600E626C7 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B301E66213600E626C7 /* SnapKit.framework */; };
-		3C8397761E6CCD520035D588 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B291E66213600E626C7 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3C8397771E6CCD520035D588 /* Kingfisher.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2A1E66213600E626C7 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3C8397781E6CCD520035D588 /* Moya.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2B1E66213600E626C7 /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3C8397791E6CCD520035D588 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2C1E66213600E626C7 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3C83977A1E6CCD520035D588 /* ReactiveMoya.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2D1E66213600E626C7 /* ReactiveMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3C83977B1E6CCD520035D588 /* ReactiveSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2E1E66213600E626C7 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3C83977C1E6CCD520035D588 /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2F1E66213600E626C7 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3C83977D1E6CCD520035D588 /* SnapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B301E66213600E626C7 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3C8397811E6CDC880035D588 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C83977F1E6CDC880035D588 /* PhotoCollectionViewCell.swift */; };
+		3C8397821E6CDC880035D588 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8397801E6CDC880035D588 /* PhotoCollectionViewCell.xib */; };
+		3C8397851E6CDCFE0035D588 /* PhotoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8397841E6CDCFE0035D588 /* PhotoCellViewModel.swift */; };
+		3C8397871E6CE6650035D588 /* Unbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8397861E6CE6650035D588 /* Unbox.swift */; };
 		3CA8EC221E6CA97500C733F2 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8EC211E6CA97500C733F2 /* PhotoModel.swift */; };
 		3CA8EC241E6CA99400C733F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8EC231E6CA99400C733F2 /* Constants.swift */; };
 		3CA8EC261E6CAF5D00C733F2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8EC251E6CAF5D00C733F2 /* DataManager.swift */; };
@@ -58,27 +54,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		3C8397751E6CCD330035D588 /* Copy Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3C8397761E6CCD520035D588 /* Alamofire.framework in Copy Frameworks */,
-				3C8397771E6CCD520035D588 /* Kingfisher.framework in Copy Frameworks */,
-				3C8397781E6CCD520035D588 /* Moya.framework in Copy Frameworks */,
-				3C8397791E6CCD520035D588 /* ReactiveCocoa.framework in Copy Frameworks */,
-				3C83977A1E6CCD520035D588 /* ReactiveMoya.framework in Copy Frameworks */,
-				3C83977B1E6CCD520035D588 /* ReactiveSwift.framework in Copy Frameworks */,
-				3C83977C1E6CCD520035D588 /* Result.framework in Copy Frameworks */,
-				3C83977D1E6CCD520035D588 /* SnapKit.framework in Copy Frameworks */,
-			);
-			name = "Copy Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		3C299B291E66213600E626C7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		3C299B2A1E66213600E626C7 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
@@ -88,6 +63,10 @@
 		3C299B2E1E66213600E626C7 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveSwift.framework; sourceTree = "<group>"; };
 		3C299B2F1E66213600E626C7 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
 		3C299B301E66213600E626C7 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
+		3C83977F1E6CDC880035D588 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		3C8397801E6CDC880035D588 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		3C8397841E6CDCFE0035D588 /* PhotoCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCellViewModel.swift; sourceTree = "<group>"; };
+		3C8397861E6CE6650035D588 /* Unbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unbox.swift; sourceTree = "<group>"; };
 		3CA8EC211E6CA97500C733F2 /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		3CA8EC231E6CA99400C733F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3CA8EC251E6CAF5D00C733F2 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -145,16 +124,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3CA8EC1F1E6CA89900C733F2 /* ListViewModel */ = {
+		3C8397831E6CDCEA0035D588 /* PhotoCellViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3C8397841E6CDCFE0035D588 /* PhotoCellViewModel.swift */,
 			);
-			path = ListViewModel;
+			path = PhotoCellViewModel;
 			sourceTree = "<group>";
 		};
 		3CA8EC201E6CA8C600C733F2 /* PhotoCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				3C83977F1E6CDC880035D588 /* PhotoCollectionViewCell.swift */,
+				3C8397801E6CDC880035D588 /* PhotoCollectionViewCell.xib */,
 			);
 			path = PhotoCollectionViewCell;
 			sourceTree = "<group>";
@@ -225,6 +207,7 @@
 		3CB61F6A1E64DC9C00E02793 /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
+				3C8397861E6CE6650035D588 /* Unbox.swift */,
 				3C299B291E66213600E626C7 /* Alamofire.framework */,
 				3C299B2A1E66213600E626C7 /* Kingfisher.framework */,
 				3C299B2B1E66213600E626C7 /* Moya.framework */,
@@ -332,7 +315,7 @@
 				3CD8B8741E6B33BC00BE6EF3 /* CategoriesListViewModel */,
 				3CD8B8751E6B33BC00BE6EF3 /* CategoryViewModel */,
 				3CD8B8761E6B33BC00BE6EF3 /* ImageDetailViewModel */,
-				3CA8EC1F1E6CA89900C733F2 /* ListViewModel */,
+				3C8397831E6CDCEA0035D588 /* PhotoCellViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -479,7 +462,7 @@
 				3CB61F331E64DBDC00E02793 /* Sources */,
 				3CB61F341E64DBDC00E02793 /* Frameworks */,
 				3CB61F351E64DBDC00E02793 /* Resources */,
-				3C8397751E6CCD330035D588 /* Copy Frameworks */,
+				3C83977E1E6CDAD60035D588 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -578,6 +561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CB61FA51E64DC9C00E02793 /* Assets.xcassets in Resources */,
+				3C8397821E6CDC880035D588 /* PhotoCollectionViewCell.xib in Resources */,
 				3CB61FA71E64DC9C00E02793 /* Main.storyboard in Resources */,
 				3CB61FA61E64DC9C00E02793 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -599,16 +583,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C83977E1E6CDAD60035D588 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Swift500pxMobile/Code/3rdparty/Alamofire.framework",
+				"$(SRCROOT)/Swift500pxMobile/Code/3rdparty/Kingfisher.framework",
+				"$(SRCROOT)/Swift500pxMobile/Code/3rdparty/Moya.framework",
+				"$(SRCROOT)/Swift500pxMobile/Code/3rdparty/ReactiveCocoa.framework",
+				"$(SRCROOT)/Swift500pxMobile/Code/3rdparty/ReactiveMoya.framework",
+				"$(SRCROOT)/Swift500pxMobile/Code/3rdparty/ReactiveSwift.framework",
+				"$(SRCROOT)/Swift500pxMobile/Code/3rdparty/Result.framework",
+				"$(SRCROOT)/Swift500pxMobile/Code/3rdparty/SnapKit.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3CB61F331E64DBDC00E02793 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8397851E6CDCFE0035D588 /* PhotoCellViewModel.swift in Sources */,
 				3CA8EC221E6CA97500C733F2 /* PhotoModel.swift in Sources */,
+				3C8397871E6CE6650035D588 /* Unbox.swift in Sources */,
 				3CA8EC281E6CAF7400C733F2 /* Networking.swift in Sources */,
 				3CA8EC311E6CC5FF00C733F2 /* CategoriesListViewModel.swift in Sources */,
 				3CA8EC2F1E6CC5B100C733F2 /* CategoriesViewController.swift in Sources */,
 				3CA8EC371E6CC6F300C733F2 /* ImageDetailsViewController.swift in Sources */,
+				3C8397811E6CDC880035D588 /* PhotoCollectionViewCell.swift in Sources */,
 				3CA8EC331E6CC66300C733F2 /* CategoryViewController.swift in Sources */,
 				3CA8EC261E6CAF5D00C733F2 /* DataManager.swift in Sources */,
 				3CB61F971E64DC9C00E02793 /* AppDelegate.swift in Sources */,
@@ -765,7 +777,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
 					"$(PROJECT_DIR)/Swift500pxMobile/Code/3rdparty/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Swift500pxMobile/SupportingFiles/Info.plist";
@@ -782,7 +794,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
 					"$(PROJECT_DIR)/Swift500pxMobile/Code/3rdparty/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Swift500pxMobile/SupportingFiles/Info.plist";

@@ -8,8 +8,11 @@
 
 import Foundation
 
-class CategoriesListViewModel {
+import ReactiveCocoa
+import ReactiveSwift
 
+class CategoriesListViewModel {
+	let title = "Categories"
 	func objectForIndex(index:Int) -> String {
 		return Constants.API.categories[index]
 	}

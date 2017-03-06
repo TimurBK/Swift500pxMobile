@@ -8,14 +8,17 @@
 
 import UIKit
 
+import ReactiveSwift
+import ReactiveCocoa
+
 // Table view data source and delegate should be moved to other objects
-class CategoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CategoriesViewController: UIViewController {
 	@IBOutlet var tableView: UITableView!
 	var viewModel: CategoriesListViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.title = "Categories"
+		self.title = self.viewModel.title
 		self.configureTableView()
         // Do any additional setup after loading the view.
     }
@@ -24,28 +27,6 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-	// MARK: - Table View
-
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
-	}
-
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReuseIdentifiers.categoryCellReuseID, for: indexPath)
-		let text = self.viewModel.objectForIndex(index: indexPath.row)
-		cell.textLabel?.text = text
-		return cell
-	}
-
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.viewModel.objectsCount()
-	}
-
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
-		self.performSegue(withIdentifier: Constants.Navigation.categorySelectedSegue, sender: Constants.API.categories[indexPath.row])
-	}
 
     // MARK: - Navigation
 
@@ -61,5 +42,29 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
 	private func configureTableView() {
 		self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.ReuseIdentifiers.categoryCellReuseID)
 		self.tableView.tableFooterView = UIView()
+	}
+}
+
+extension CategoriesViewController : UITableViewDataSource {
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReuseIdentifiers.categoryCellReuseID, for: indexPath)
+		let text = self.viewModel.objectForIndex(index: indexPath.row)
+		cell.textLabel?.text = text
+		return cell
+	}
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return self.viewModel.objectsCount()
+	}
+}
+
+extension CategoriesViewController : UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		self.performSegue(withIdentifier: Constants.Navigation.categorySelectedSegue, sender: self.viewModel.objectForIndex(index: indexPath.row))
 	}
 }

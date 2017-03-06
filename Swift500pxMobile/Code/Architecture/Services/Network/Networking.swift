@@ -7,18 +7,36 @@
 //
 
 import Foundation
-import ReactiveMoya
 import Moya
 import ReactiveCocoa
 import ReactiveSwift
 
+typealias ListUpdate<T> = ([T]?, String?) -> ()
+
 class Networking {
-	let provider: ReactiveSwiftMoyaProvider<PXAPI>
+	let provider: MoyaProvider<PXAPI>
 	init() {
-		self.provider = ReactiveSwiftMoyaProvider<PXAPI>()
+		self.provider = MoyaProvider<PXAPI>()
 	}
-	func fetchPhotos(page:Int64, category: String) -> SignalProducer<Response, MoyaError> {
-		return self.provider.request(.photos(page: page, category: category))
+	func fetchPhotos(page:Int64, category: String, completion:@escaping ListUpdate<PhotoModel>) {
+		self.provider.request(.photos(page: page, category: category)) { result in
+			switch result {
+			case let .success(moyaResponse):
+				let data = moyaResponse.data
+				let statusCode = moyaResponse.statusCode
+			// do something with the response data or statusCode
+			case let .failure(error):
+				guard let error = error as? CustomStringConvertible else {
+					completion([], "Unknown error")
+					break
+				}
+				completion([], error.description)
+				// this means there was a network failure - either the request
+				// wasn't sent (connectivity), or no response was received (server
+				// timed out).  If the server responds with a 4xx or 5xx error, that
+				// will be sent as a ".success"-ful response.
+			}
+		}
 	}
 
 }

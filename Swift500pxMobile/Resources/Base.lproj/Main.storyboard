@@ -85,16 +85,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ghw-0v-b1M">
-                                        <rect key="frame" x="10" y="10" width="150" height="150"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="Wg3-0I-uyK" id="dDp-2f-dRc"/>
                                     <outlet property="delegate" destination="Wg3-0I-uyK" id="Evd-Cb-7Av"/>
@@ -149,7 +140,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.69827782846715325" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="g1p-0w-MRB" secondAttribute="trailing" constant="20" id="6gG-VR-Anc"/>
                                     <constraint firstItem="g1p-0w-MRB" firstAttribute="leading" secondItem="fTW-1n-gee" secondAttribute="leading" constant="20" id="Gu1-hR-tSk"/>

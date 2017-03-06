@@ -17,7 +17,7 @@ class DataManager {
 		self.networking = networking
 	}
 
-	public func fetchPhotos(page:Int64, category: String) -> SignalProducer<Response, MoyaError> {
-		return self.networking.fetchPhotos(page: page, category: category)
+	public func fetchPhotos(page:Int64, category: String, completion:@escaping ListUpdate<PhotoModel>) {
+		return self.networking.fetchPhotos(page: page, category: category, completion: completion)
 	}
 }

@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import ReactiveCocoa
+import ReactiveSwift
 
-class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CategoryViewController: UIViewController {
 	var viewModel: CategoryViewModel!
 	@IBOutlet var collectionView: UICollectionView!
 
@@ -16,6 +18,9 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.title = self.viewModel.category
+		self.viewModel.loadPhotos(page: 0) { (photos, error) in
+			print("Logging")
+		}
         // Do any additional setup after loading the view.
     }
 
@@ -23,24 +28,6 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-	// MARK: - Collection View
-
-	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 1
-	}
-
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 0
-	}
-
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		return UICollectionViewCell()
-	}
-
-	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		collectionView.deselectItem(at: indexPath, animated: true)
-	}
 
     // MARK: - Navigation
 
@@ -56,4 +43,27 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
 
 	}
 
+}
+
+extension CategoryViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		return 1
+	}
+
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return self.viewModel.photos.count
+	}
+
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.ReuseIdentifiers.photoCellReuseID, for: indexPath) as! PhotoCollectionViewCell
+
+		cell.configure(viewModel: self.viewModel.viewModelFor(index: indexPath.row))
+
+		return cell
+	}
+
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		collectionView.deselectItem(at: indexPath, animated: true)
+	}
 }
