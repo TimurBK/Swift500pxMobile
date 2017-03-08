@@ -13,6 +13,7 @@ import Moya
 
 class DataManager {
 	private let networking: Networking
+	static let shared = DataManager(networking: Networking())
 	public init(networking: Networking) {
 		self.networking = networking
 	}

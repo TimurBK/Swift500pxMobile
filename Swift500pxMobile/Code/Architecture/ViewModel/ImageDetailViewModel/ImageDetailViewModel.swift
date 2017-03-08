@@ -9,4 +9,12 @@
 import Foundation
 
 class ImageDetailViewModel {
+	let imageAddress: String
+	let photographerName: String
+	let photoDescription: String
+	init(imageAddress: String, photographerName: String, photoDescription: String) {
+		self.imageAddress = imageAddress
+		self.photographerName = photographerName
+		self.photoDescription = photoDescription
+	}
 }

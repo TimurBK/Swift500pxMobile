@@ -22,9 +22,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 
 	func configure(viewModel: PhotoCellViewModel) {
 		let url = URL(string: viewModel.imageAddress)!
+		self.photoImage.kf.indicatorType = .activity
 		self.photoImage.kf.setImage(with:url)
 		self.photographerName.text = viewModel.photographerName
 		self.photoDescription.text = viewModel.photoDescription
 	}
 
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		self.photoImage.kf.cancelDownloadTask()
+	}
 }

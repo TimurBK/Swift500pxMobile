@@ -15,6 +15,7 @@ struct Constants {
 			static let photosPath = "photos"
 		}
 		struct ParametersKeys {
+			static let apiKey = "consumer_key"
 			static let categoryFilter = "only"
 			static let pageSize = "rpp"
 			static let page = "page"

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1EA0BB1E70C8B6007439F4 /* Changeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1EA0B91E70C8B6007439F4 /* Changeset.swift */; };
+		3C1EA0BC1E70C8B6007439F4 /* UIKit+Changeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1EA0BA1E70C8B6007439F4 /* UIKit+Changeset.swift */; };
 		3C299B311E66213600E626C7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B291E66213600E626C7 /* Alamofire.framework */; };
 		3C299B321E66213600E626C7 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2A1E66213600E626C7 /* Kingfisher.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3C299B331E66213600E626C7 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2B1E66213600E626C7 /* Moya.framework */; };
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C1EA0B91E70C8B6007439F4 /* Changeset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Changeset.swift; sourceTree = "<group>"; };
+		3C1EA0BA1E70C8B6007439F4 /* UIKit+Changeset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Changeset.swift"; sourceTree = "<group>"; };
 		3C299B291E66213600E626C7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		3C299B2A1E66213600E626C7 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
 		3C299B2B1E66213600E626C7 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Moya.framework; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 		3CB61F6A1E64DC9C00E02793 /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
+				3C1EA0B91E70C8B6007439F4 /* Changeset.swift */,
+				3C1EA0BA1E70C8B6007439F4 /* UIKit+Changeset.swift */,
 				3C8397861E6CE6650035D588 /* Unbox.swift */,
 				3C299B291E66213600E626C7 /* Alamofire.framework */,
 				3C299B2A1E66213600E626C7 /* Kingfisher.framework */,
@@ -521,6 +527,7 @@
 				TargetAttributes = {
 					3CB61F361E64DBDC00E02793 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = BG4LAHZE62;
 						ProvisioningStyle = Automatic;
 					};
 					3CB61F4A1E64DBDC00E02793 = {
@@ -615,6 +622,8 @@
 			files = (
 				3C8397851E6CDCFE0035D588 /* PhotoCellViewModel.swift in Sources */,
 				3CA8EC221E6CA97500C733F2 /* PhotoModel.swift in Sources */,
+				3C1EA0BB1E70C8B6007439F4 /* Changeset.swift in Sources */,
+				3C1EA0BC1E70C8B6007439F4 /* UIKit+Changeset.swift in Sources */,
 				3C8397871E6CE6650035D588 /* Unbox.swift in Sources */,
 				3CA8EC281E6CAF7400C733F2 /* Networking.swift in Sources */,
 				3CA8EC311E6CC5FF00C733F2 /* CategoriesListViewModel.swift in Sources */,
@@ -776,6 +785,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BG4LAHZE62;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"$(PROJECT_DIR)/Swift500pxMobile/Code/3rdparty/**",
@@ -793,6 +803,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BG4LAHZE62;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"$(PROJECT_DIR)/Swift500pxMobile/Code/3rdparty/**",

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ImageDetailsViewController: UIViewController {
 
@@ -15,9 +16,20 @@ class ImageDetailsViewController: UIViewController {
 	@IBOutlet var photographerName: UILabel!
 	@IBOutlet var photoDescription: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	var viewModel: ImageDetailViewModel!
 
+	deinit {
+		self.imageView.kf.cancelDownloadTask()
+	}
+
+    override func viewDidLoad() {
+		super.viewDidLoad()
+		self.title = self.viewModel.photoDescription
+		let url = URL(string: viewModel.imageAddress)!
+		self.imageView.kf.indicatorType = .activity
+		self.imageView.kf.setImage(with:url)
+		self.photographerName.text = self.viewModel.photographerName
+		self.photoDescription.text = self.viewModel.photoDescription
         // Do any additional setup after loading the view.
     }
 

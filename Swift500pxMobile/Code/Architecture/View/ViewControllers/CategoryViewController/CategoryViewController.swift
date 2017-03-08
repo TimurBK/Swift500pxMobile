@@ -17,9 +17,10 @@ class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.configureCollectionView()
 		self.title = self.viewModel.category
-		self.viewModel.loadPhotos(page: 0) { (photos, error) in
-			print("Logging")
+		self.viewModel.loadPhotos(page: 1) { [weak self] (photos, error) in
+			self?.collectionView.reloadData()
 		}
         // Do any additional setup after loading the view.
     }
@@ -33,14 +34,19 @@ class CategoryViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+		if segue.identifier == Constants.Navigation.fullscreenPhotoSegue {
+			let destination = segue.destination as! ImageDetailsViewController
+			let selectedViewModel = sender as! PhotoCellViewModel
+
+			let viewModel = ImageDetailViewModel(imageAddress: selectedViewModel.imageAddress, photographerName: selectedViewModel.photographerName, photoDescription: selectedViewModel.photoDescription)
+			destination.viewModel = viewModel
+		}
     }
 
 	// MARK: - Private
 
 	private func configureCollectionView() {
-
+		self.collectionView.register(UINib.init(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.ReuseIdentifiers.photoCellReuseID)
 	}
 
 }
@@ -65,5 +71,19 @@ extension CategoryViewController : UICollectionViewDataSource, UICollectionViewD
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		collectionView.deselectItem(at: indexPath, animated: true)
+		self.performSegue(withIdentifier: Constants.Navigation.fullscreenPhotoSegue, sender: self.viewModel.viewModelFor(index: indexPath.row))
+	}
+}
+
+extension CategoryViewController {
+	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+		if scrollView == self.collectionView {
+			let shouldLoadPage = targetContentOffset.pointee.y > scrollView.contentSize.height - 3 * scrollView.frame.size.height
+			if shouldLoadPage {
+				self.viewModel.loadNextPage(completion: {[weak self] (photos, error) in
+					self?.collectionView.reloadData()
+				})
+			}
+		}
 	}
 }

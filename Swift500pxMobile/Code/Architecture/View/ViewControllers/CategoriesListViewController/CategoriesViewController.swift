@@ -32,9 +32,11 @@ class CategoriesViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let destination = segue.destination as! CategoryViewController
-		let viewModel = CategoryViewModel(category:(sender as! String))
-		destination.viewModel = viewModel
+		if segue.identifier == Constants.Navigation.categorySelectedSegue {
+			let destination = segue.destination as! CategoryViewController
+			let viewModel = CategoryViewModel(category:(sender as! String))
+			destination.viewModel = viewModel
+		}
     }
 
 	// MARK: - Private

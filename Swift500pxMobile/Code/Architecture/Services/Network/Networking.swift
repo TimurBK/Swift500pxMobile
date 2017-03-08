@@ -11,7 +11,7 @@ import Moya
 import ReactiveCocoa
 import ReactiveSwift
 
-typealias ListUpdate<T> = ([T]?, String?) -> ()
+typealias ListUpdate<T> = ([T], String?) -> ()
 
 class Networking {
 	let provider: MoyaProvider<PXAPI>
@@ -24,6 +24,19 @@ class Networking {
 			case let .success(moyaResponse):
 				let data = moyaResponse.data
 				let statusCode = moyaResponse.statusCode
+
+				if statusCode > 399 {
+					completion([], "Error detected")
+					return
+				}
+
+				let parsed: [PhotoModel]? = try? unbox(data: data, atKeyPath: "photos", allowInvalidElements: false)
+				if parsed != nil {
+					completion(parsed!, nil)
+				} else {
+					completion([], "Parse error")
+				}
+
 			// do something with the response data or statusCode
 			case let .failure(error):
 				guard let error = error as? CustomStringConvertible else {
@@ -67,6 +80,7 @@ extension PXAPI : TargetType {
 		switch self {
 		case .photos(let page, let category):
 			var params = [
+				Constants.API.ParametersKeys.apiKey: Constants.API.apiKey,
 				Constants.API.ParametersKeys.feature: Constants.API.ParametersValues.feature,
 				Constants.API.ParametersKeys.imageSize: Constants.API.ParametersValues.imageSize,
 				Constants.API.ParametersKeys.page: page,
