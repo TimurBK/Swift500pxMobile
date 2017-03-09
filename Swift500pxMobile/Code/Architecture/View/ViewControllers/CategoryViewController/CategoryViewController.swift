@@ -22,7 +22,7 @@ class CategoryViewController: UIViewController {
 		self.indicator.startAnimating()
 		self.viewModel.loadPhotos(page: 1) { [weak self] (photos, error) in
 			self?.indicator.stopAnimating()
-			self?.collectionView.reloadData()
+			self?.loadingDone(photos: photos, error: error)
 		}
         // Do any additional setup after loading the view.
     }
@@ -50,6 +50,16 @@ class CategoryViewController: UIViewController {
 		self.collectionView.register(UINib.init(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.ReuseIdentifiers.photoCellReuseID)
 	}
 
+	fileprivate func loadingDone(photos:[Any], error: String?) {
+		if (error == nil) {
+			self.collectionView.reloadData()
+		} else {
+			let alert = UIAlertController(title: error, message: nil, preferredStyle: .alert)
+			let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+			alert.addAction(action)
+			self.present(alert, animated: true, completion: nil)
+		}
+	}
 }
 
 extension CategoryViewController : UICollectionViewDataSource, UICollectionViewDelegate {
@@ -83,7 +93,7 @@ extension CategoryViewController {
 			let shouldLoadPage = targetContentOffset.pointee.y > scrollView.contentSize.height - space * scrollView.frame.size.height
 			if shouldLoadPage {
 				self.viewModel.loadNextPage(completion: {[weak self] (photos, error) in
-					self?.collectionView.reloadData()
+					self?.loadingDone(photos: photos, error: error)
 				})
 			}
 		}

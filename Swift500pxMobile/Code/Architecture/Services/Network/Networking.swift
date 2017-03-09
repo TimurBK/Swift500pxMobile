@@ -39,9 +39,21 @@ class Networking {
 
 			// do something with the response data or statusCode
 			case let .failure(error):
-				guard let error = error as? CustomStringConvertible else {
+				print("error = \(error)")
+				switch error {
+				case .underlying(let nsError):
+					// now can access NSError error.code or whatever
+					// e.g. NSURLErrorTimedOut or NSURLErrorNotConnectedToInternet
+
+					completion([], nsError.localizedDescription)
+					return
+				default: break 
+				}
+
+				guard
+					let error = error as? CustomStringConvertible else {
 					completion([], "Unknown error")
-					break
+						return
 				}
 				completion([], error.description)
 				// this means there was a network failure - either the request
