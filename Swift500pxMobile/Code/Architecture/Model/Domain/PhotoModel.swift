@@ -25,3 +25,10 @@ extension PhotoModel : Unboxable {
 		self.fullsizedURL = try unboxer.unbox(keyPath: "images.1.url")
 	}
 }
+
+extension PhotoModel : Equatable {
+
+}
+func ==(lhs: PhotoModel, rhs: PhotoModel) -> Bool {
+	return lhs.identifier == rhs.identifier
+}

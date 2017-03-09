@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import ReactiveCocoa
 import ReactiveSwift
+import ReactiveCocoa
 
 class CategoryViewController: UIViewController {
 	var viewModel: CategoryViewModel!
@@ -37,8 +37,7 @@ class CategoryViewController: UIViewController {
 		if segue.identifier == Constants.Navigation.fullscreenPhotoSegue {
 			let destination = segue.destination as! ImageDetailsViewController
 			let selectedViewModel = sender as! PhotoCellViewModel
-
-			let viewModel = ImageDetailViewModel(imageAddress: selectedViewModel.imageAddress, photographerName: selectedViewModel.photographerName, photoDescription: selectedViewModel.photoDescription)
+			let viewModel = self.viewModel.imageDetailViewModel(for: selectedViewModel)
 			destination.viewModel = viewModel
 		}
     }

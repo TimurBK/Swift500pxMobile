@@ -34,7 +34,8 @@ class CategoriesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == Constants.Navigation.categorySelectedSegue {
 			let destination = segue.destination as! CategoryViewController
-			let viewModel = CategoryViewModel(category:(sender as! String))
+			let category = sender as! String
+			let viewModel = self.viewModel.categoryViewModel(for: category)
 			destination.viewModel = viewModel
 		}
     }

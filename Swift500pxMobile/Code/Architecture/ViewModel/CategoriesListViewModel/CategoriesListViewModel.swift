@@ -20,4 +20,8 @@ class CategoriesListViewModel {
 	func objectsCount() -> Int {
 		return Constants.API.categories.count
 	}
+
+	func categoryViewModel(for category: String) -> CategoryViewModel {
+		return CategoryViewModel(category: category)
+	}
 }

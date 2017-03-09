@@ -43,6 +43,10 @@ class CategoryViewModel {
 		return viewModel
 	}
 
+	func imageDetailViewModel(for viewModel:PhotoCellViewModel) -> ImageDetailViewModel {
+		return ImageDetailViewModel(imageAddress: viewModel.imageAddress, photographerName: viewModel.photographerName, photoDescription: viewModel.photoDescription)
+	}
+
 	private func merge(photos: [PhotoModel]) {
 		self.photos += photos
 	}
