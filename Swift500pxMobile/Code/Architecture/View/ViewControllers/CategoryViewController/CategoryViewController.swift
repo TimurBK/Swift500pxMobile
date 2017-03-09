@@ -79,7 +79,7 @@ extension CategoryViewController : UICollectionViewDataSource, UICollectionViewD
 extension CategoryViewController {
 	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		if scrollView == self.collectionView {
-			let space = max(Constants.screensBeforeLoadingMore, (velocity.y - self.collectionView.frame.size.height / 1000 ), Constants.maxScreensBeforeLoadingMore)
+			let space = min(max(Constants.screensBeforeLoadingMore, (velocity.y - self.collectionView.frame.size.height / 1000 )), Constants.maxScreensBeforeLoadingMore)
 			let shouldLoadPage = targetContentOffset.pointee.y > scrollView.contentSize.height - space * scrollView.frame.size.height
 			if shouldLoadPage {
 				self.viewModel.loadNextPage(completion: {[weak self] (photos, error) in
