@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
 	struct API {
@@ -41,5 +42,7 @@ struct Constants {
 	struct ReuseIdentifiers {
 		static let categoryCellReuseID = "categoryCellReuseID"
 		static let photoCellReuseID = "photoCellReuseID"
+		static let loadingIndicatorReuseID = "loadingIndicatorReuseID"
 	}
+	static let screensBeforeLoadingMore: CGFloat = 3.0
 }

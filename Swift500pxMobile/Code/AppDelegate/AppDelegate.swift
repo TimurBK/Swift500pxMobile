@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let navigationController = self.window?.rootViewController as! UINavigationController
 		let initialController = navigationController.topViewController! as! CategoriesViewController
 		initialController.viewModel = CategoriesListViewModel()
+
 		return true
 	}
 

@@ -10,12 +10,13 @@ import Foundation
 
 class CategoryViewModel {
 	let category: String
-	var photos: [PhotoModel] = []
+	var photos: NSMutableOrderedSet
 	var page: Int64 = 1
 	var loading = false
 
 	init(category: String) {
 		self.category = category
+		self.photos = NSMutableOrderedSet()
 	}
 
 	func loadPhotos(page:Int64, completion: @escaping ListUpdate<PhotoModel>) {
@@ -38,7 +39,7 @@ class CategoryViewModel {
 	}
 
 	func viewModelFor(index: Int) -> PhotoCellViewModel {
-		let photo = self.photos[index]
+		let photo = self.photos[index] as! PhotoModel
 		let viewModel = PhotoCellViewModel(photographerName: photo.photographerName, photoDescription: photo.photoName, imageAddress: photo.thumbnailURL)
 		return viewModel
 	}
@@ -48,6 +49,14 @@ class CategoryViewModel {
 	}
 
 	private func merge(photos: [PhotoModel]) {
-		self.photos += photos
+		for photoModel in photos {
+			// actually find-or-create as equality and hash are based solely on identifier which should be unique
+			if self.photos.contains(photoModel) {
+				let index = self.photos.index(of: photoModel)
+				self.photos.replaceObject(at: index, with: photoModel)
+			} else {
+				self.photos.add(photoModel)
+			}
+		}
 	}
 }

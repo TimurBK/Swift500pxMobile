@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1EA0BF1E70DB81007439F4 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1EA0BE1E70DB81007439F4 /* LoadingIndicatorView.swift */; };
+		3C1EA0C11E70DB87007439F4 /* LoadingIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C1EA0C01E70DB87007439F4 /* LoadingIndicatorView.xib */; };
 		3C299B311E66213600E626C7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B291E66213600E626C7 /* Alamofire.framework */; };
 		3C299B321E66213600E626C7 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2A1E66213600E626C7 /* Kingfisher.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3C299B331E66213600E626C7 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C299B2B1E66213600E626C7 /* Moya.framework */; };
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C1EA0BE1E70DB81007439F4 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
+		3C1EA0C01E70DB87007439F4 /* LoadingIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicatorView.xib; sourceTree = "<group>"; };
 		3C299B291E66213600E626C7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		3C299B2A1E66213600E626C7 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
 		3C299B2B1E66213600E626C7 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Moya.framework; sourceTree = "<group>"; };
@@ -124,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C1EA0BD1E70DB70007439F4 /* LoadingIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				3C1EA0BE1E70DB81007439F4 /* LoadingIndicatorView.swift */,
+				3C1EA0C01E70DB87007439F4 /* LoadingIndicatorView.xib */,
+			);
+			path = LoadingIndicatorView;
+			sourceTree = "<group>";
+		};
 		3C8397831E6CDCEA0035D588 /* PhotoCellViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +317,7 @@
 		3CB61F811E64DC9C00E02793 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3C1EA0BD1E70DB70007439F4 /* LoadingIndicatorView */,
 				3CA8EC201E6CA8C600C733F2 /* PhotoCollectionViewCell */,
 			);
 			path = Views;
@@ -562,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CB61FA51E64DC9C00E02793 /* Assets.xcassets in Resources */,
+				3C1EA0C11E70DB87007439F4 /* LoadingIndicatorView.xib in Resources */,
 				3C8397821E6CDC880035D588 /* PhotoCollectionViewCell.xib in Resources */,
 				3CB61FA71E64DC9C00E02793 /* Main.storyboard in Resources */,
 				3CB61FA61E64DC9C00E02793 /* LaunchScreen.storyboard in Resources */,
@@ -620,6 +635,7 @@
 				3CA8EC281E6CAF7400C733F2 /* Networking.swift in Sources */,
 				3CA8EC311E6CC5FF00C733F2 /* CategoriesListViewModel.swift in Sources */,
 				3CA8EC2F1E6CC5B100C733F2 /* CategoriesViewController.swift in Sources */,
+				3C1EA0BF1E70DB81007439F4 /* LoadingIndicatorView.swift in Sources */,
 				3CA8EC371E6CC6F300C733F2 /* ImageDetailsViewController.swift in Sources */,
 				3C8397811E6CDC880035D588 /* PhotoCollectionViewCell.swift in Sources */,
 				3CA8EC331E6CC66300C733F2 /* CategoryViewController.swift in Sources */,

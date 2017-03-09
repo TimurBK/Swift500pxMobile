@@ -26,8 +26,8 @@ extension PhotoModel : Unboxable {
 	}
 }
 
-extension PhotoModel : Equatable {
-
+extension PhotoModel : Equatable, Hashable {
+	var hashValue: Int {return Int(self.identifier)}
 }
 func ==(lhs: PhotoModel, rhs: PhotoModel) -> Bool {
 	return lhs.identifier == rhs.identifier
