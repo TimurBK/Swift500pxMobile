@@ -13,6 +13,7 @@ class CategoryViewModel {
 	var photos: NSMutableOrderedSet
 	var page: Int64 = 1
 	var loading = false
+	let queue = DispatchQueue(label: "me.t-91.categoryvmqueue", qos: .userInitiated)
 
 	init(category: String) {
 		self.category = category
@@ -21,15 +22,19 @@ class CategoryViewModel {
 
 	func loadPhotos(page:Int64, completion: @escaping ListUpdate<PhotoModel>) {
 		if !self.loading {
-			print("loading page = \(page)")
 			self.loading = true
-			DataManager.shared.fetchPhotos(page: page, category: self.category) { (photos, error) in
-				self.merge(photos: photos)
-				if photos.count > 0 {
-					self.page = page
+			DataManager.shared.fetchPhotos(page: page, category: self.category) { [weak self] (photos, error) in
+				self?.queue.async {
+					self?.merge(photos: photos)
+					if photos.count > 0 {
+						self?.page = page
+					}
+					self?.loading = false
+
+					DispatchQueue.main.async {
+						completion(photos, error)
+					}
 				}
-				self.loading = false
-				completion(photos, error)
 			}
 		}
 	}
