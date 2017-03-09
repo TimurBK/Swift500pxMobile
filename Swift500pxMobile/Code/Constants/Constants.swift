@@ -45,4 +45,5 @@ struct Constants {
 		static let loadingIndicatorReuseID = "loadingIndicatorReuseID"
 	}
 	static let screensBeforeLoadingMore: CGFloat = 3.0
+	static let maxScreensBeforeLoadingMore: CGFloat = 10
 }

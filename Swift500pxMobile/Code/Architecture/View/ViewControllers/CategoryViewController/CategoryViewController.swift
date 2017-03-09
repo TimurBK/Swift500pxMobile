@@ -13,13 +13,15 @@ import ReactiveCocoa
 class CategoryViewController: UIViewController {
 	var viewModel: CategoryViewModel!
 	@IBOutlet var collectionView: UICollectionView!
-
+	@IBOutlet var indicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.configureCollectionView()
 		self.title = self.viewModel.category
+		self.indicator.startAnimating()
 		self.viewModel.loadPhotos(page: 1) { [weak self] (photos, error) in
+			self?.indicator.stopAnimating()
 			self?.collectionView.reloadData()
 		}
         // Do any additional setup after loading the view.
@@ -77,7 +79,7 @@ extension CategoryViewController : UICollectionViewDataSource, UICollectionViewD
 extension CategoryViewController {
 	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		if scrollView == self.collectionView {
-			let space = max(Constants.screensBeforeLoadingMore, (velocity.y - self.collectionView.frame.size.height / 1000 ))
+			let space = max(Constants.screensBeforeLoadingMore, (velocity.y - self.collectionView.frame.size.height / 1000 ), Constants.maxScreensBeforeLoadingMore)
 			let shouldLoadPage = targetContentOffset.pointee.y > scrollView.contentSize.height - space * scrollView.frame.size.height
 			if shouldLoadPage {
 				self.viewModel.loadNextPage(completion: {[weak self] (photos, error) in

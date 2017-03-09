@@ -91,6 +91,10 @@
                                     <outlet property="delegate" destination="Wg3-0I-uyK" id="Evd-Cb-7Av"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uJ5-ww-Jm2">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -102,6 +106,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="aT0-el-np9" id="S8i-9f-TtX"/>
+                        <outlet property="indicator" destination="uJ5-ww-Jm2" id="IGU-EG-AUF"/>
                         <segue destination="TyR-WB-brV" kind="show" identifier="fullscreenPhotoSegue" id="INt-Ii-22U"/>
                     </connections>
                 </viewController>
